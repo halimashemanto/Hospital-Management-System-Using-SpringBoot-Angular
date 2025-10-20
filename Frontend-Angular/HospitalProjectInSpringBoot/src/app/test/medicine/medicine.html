@@ -1,0 +1,71 @@
+<div class="container mt-4">
+  <h1><b>List of Generic</b></h1>
+
+  <!-- Medicine Form -->
+  <form [formGroup]="mediForm" (ngSubmit)="onSubmit()" 
+        class="mb-4 card p-3 shadow-sm">
+    <div class="row g-3 align-items-center">
+      <div class="col-md-6">
+        <input type="text" formControlName="medicineName" 
+               class="form-control" placeholder="Enter Medicine Name">
+      </div>
+      <div class="col-md-3 d-grid">
+        <button type="submit" class="btn btn-primary">
+          {{ editMode ? 'Update' : 'Save' }}
+        </button>
+      </div>
+      <div class="col-md-3 d-grid" *ngIf="editMode">
+        <button type="button" class="btn btn-secondary" 
+                (click)="resetForm()">Cancel</button>
+      </div>
+    </div>
+  </form>
+
+  <!-- ✅ Modern Colourful Card View -->
+  <div class="row g-4">
+    <div class="col-md-4" *ngFor="let m of medicines">
+      <div class="card shadow-lg border-0 h-100"
+           style="border-radius:20px; 
+                  background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+                  transition: transform 0.3s ease, box-shadow 0.3s ease;"
+           onmouseover="this.style.transform='translateY(-8px) scale(1.02)'; 
+                        this.style.boxShadow='0px 12px 25px rgba(0,0,0,0.2)';"
+           onmouseout="this.style.transform='scale(1)'; 
+                       this.style.boxShadow='0px 6px 12px rgba(0,0,0,0.15)';">
+        <div class="card-body text-center">
+
+          <!-- 🌟 Medicine Icon -->
+          <div style="font-size:50px; margin-bottom:12px;">
+            💊
+          </div>
+
+          <!-- ✅ Medicine name bold highlight -->
+          <h5 class="card-title"
+              style="font-size:1.6rem; 
+                     font-weight:900; 
+                     color:#2c3e50;
+                     letter-spacing:1px;
+                     text-shadow:1px 1px 2px rgba(0,0,0,0.15);">
+            {{ m.medicineName }}
+          </h5>
+
+          <div class="d-flex justify-content-center gap-2 mt-3">
+            <button class="btn btn-sm btn-light" (click)="onEdit(m)" 
+                    style="border-radius:12px; font-weight:bold; color:#333;">
+              ✏ Edit
+            </button>
+            <button class="btn btn-sm btn-dark" (click)="onDelete(m.id)" 
+                    style="border-radius:12px; font-weight:bold;">
+              ❌ Delete
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="medicines.length === 0" 
+         class="text-center text-muted mt-3">
+      No medicines found
+    </div>
+  </div>
+</div>

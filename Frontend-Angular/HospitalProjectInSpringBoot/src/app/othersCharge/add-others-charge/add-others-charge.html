@@ -1,0 +1,60 @@
+<div class="container mt-4">
+  <h2 class="text-center mb-3">Patient Others Charges</h2>
+
+  <!-- BedBooking ID Input -->
+  <div class="mb-3">
+    <input type="number" class="form-control" placeholder="Enter Bed Booking ID"
+           [(ngModel)]="bedBookingId" (change)="loadPatientCharges()">
+  </div>
+
+  <!-- Loading / Error -->
+  <div *ngIf="loading" class="text-center text-primary">Loading...</div>
+  <div *ngIf="errorMessage" class="text-center text-danger">{{ errorMessage }}</div>
+
+  <!-- Patient Info -->
+  <div *ngIf="patientCharges" class="card p-3 mb-3">
+    <h5>Patient: {{ patientCharges.patientName }}</h5>
+    <p>Age: {{ patientCharges.age }} | Phone: {{ patientCharges.phone }} | Address: {{ patientCharges.address }}</p>
+  </div>
+
+  <!-- Add Charge Form -->
+  <form [formGroup]="form" (ngSubmit)="addCharge()" *ngIf="patientCharges">
+    <div class="row g-2">
+      <div class="col-md-6">
+        <input type="text" class="form-control" placeholder="Description" formControlName="description">
+      </div>
+      <div class="col-md-4">
+        <input type="number" class="form-control" placeholder="Amount" formControlName="amount">
+      </div>
+      <div class="col-md-2">
+        <button class="btn btn-primary w-100" type="submit">Add</button>
+      </div>
+    </div>
+  </form>
+
+  <!-- Charges Table -->
+  <table class="table table-striped mt-3" *ngIf="patientCharges && patientCharges.charges.length > 0">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Description</th>
+        <th>Amount</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let c of patientCharges.charges; let i = index">
+        <td>{{ i + 1 }}</td>
+        <td>{{ c.description }}</td>
+        <td>{{ c.amount | currency:'BDT' }}</td>
+        <td>
+          <button class="btn btn-danger btn-sm" (click)="deleteCharge(c.id!)">Delete</button>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2" class="text-end"><strong>Total</strong></td>
+        <td colspan="2"><strong>{{ patientCharges.totalAmount | currency:'BDT' }}</strong></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

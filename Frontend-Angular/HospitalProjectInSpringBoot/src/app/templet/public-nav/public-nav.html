@@ -1,0 +1,658 @@
+<!-- <!DOCTYPE html>
+<html lang="bn"> -->
+<!-- <head> -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Health Care of Bangladesh — আপনার বিশ্বস্ত হাসপাতাল</title>
+  <meta name="description" content="Health Care of Bangladesh — 24/7  Emergency Service, Online Appoitment, Diagonistic, Excilent Doctor's।" />
+  <meta property="og:title" content="Health Care of Bangladesh" />
+  <meta property="og:description" content="24/7 Emergency Service & Online Appoitment" />
+  <meta name="theme-color" content="#0ea5e9" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%230ea5e9'/><path d='M45 20h10v25h25v10H55v25H45V55H20V45h25z' fill='white'/></svg>">
+  <style>
+    :root{
+      --primary:#0ea5e9; /* sky-500 */
+      --primary-dark:#0284c7; /* sky-600 */
+      --accent:#22c55e; /* green-500 */
+      --text:#0f172a; /* slate-900 */
+      --muted:#475569; /* slate-600 */
+      --bg:#f8fafc; /* slate-50 */
+      --card:#ffffff;
+      --ring: 0 0 0 3px rgba(14,165,233,.25);
+      --radius: 14px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:var(--text);background:var(--bg);}
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+    .container{max-width:1200px;margin:0 auto;padding:0 20px}
+
+    /* Navbar */
+    .nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.8);backdrop-filter: blur(8px);border-bottom:1px solid #e2e8f0}
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+    .brand{display:flex;align-items:center;gap:10px;font-weight:700}
+    .brand-badge{width:36px;height:36px;border-radius:10px;background:var(--primary);display:grid;place-items:center;color:#fff;font-weight:800}
+    .nav-links{display:flex;gap:20px;align-items:center}
+    .nav-links a{padding:8px 12px;border-radius:10px;color:var(--muted);font-weight:500}
+    .nav-links a:hover, .nav-links a:focus{outline:none;background:#e0f2fe;color:#0c4a6e}
+    .nav-cta{padding:10px 16px;border-radius:999px;background:var(--primary);color:#fff;font-weight:600;border:0}
+    .nav-cta:hover{background:var(--primary-dark)}
+    .menu-btn{display:none;background:transparent;border:0;font-size:20px}
+
+    /* Hero */
+    .hero{position:relative;overflow:hidden}
+    .hero-wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:36px;align-items:center;padding:64px 0}
+    .blob{position:absolute;inset:auto -12% -30% auto;width:520px;height:520px;background:radial-gradient(40% 40% at 50% 50%, #7dd3fc, transparent 60%), radial-gradient(35% 35% at 70% 30%, #bae6fd, transparent 60%), radial-gradient(30% 30% at 30% 70%, #38bdf8, transparent 60%);filter:blur(40px);opacity:.5;pointer-events:none}
+    .hero h1{font-size:44px;line-height:1.15;margin:0 0 14px}
+    .hero p{color:var(--muted);font-size:18px;margin:0 0 24px}
+    .badge{display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border-radius:999px;background:#e0f2fe;color:#0c4a6e;font-weight:600;font-size:13px}
+    .hero-card{background:linear-gradient(180deg,#fff, #f0f9ff);border:1px solid #e2e8f0;border-radius:var(--radius);padding:20px;box-shadow:0 12px 30px rgba(2,132,199,.15)}
+    .stat{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:18px}
+    .stat .item{background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:14px;text-align:center}
+    .btn{display:inline-flex;align-items:center;gap:10px;padding:12px 18px;border-radius:12px;border:0;background:var(--primary);color:#fff;font-weight:600}
+    .btn.secondary{background:#e2e8f0;color:#0f172a}
+    .btn:hover{filter:brightness(.95)}
+
+    /* Sections */
+    section{padding:56px 0}
+    .section-title{font-size:28px;margin:0 0 10px}
+    .section-sub{color:var(--muted);margin:0 0 28px}
+
+    /* Services */
+    .grid{display:grid;gap:18px}
+    .grid-3{grid-template-columns:repeat(3,1fr)}
+    .card{background:var(--card);border:1px solid #e2e8f0;border-radius:var(--radius);padding:18px}
+    .card h3{margin:10px 0 6px;font-size:18px}
+    .card p{margin:0;color:var(--muted)}
+
+    /* Doctors */
+    .doctor{display:flex;gap:14px;align-items:center}
+    .avatar{width:62px;height:62px;border-radius:50%;background:#e2e8f0;object-fit:cover}
+    .tag{display:inline-block;padding:4px 10px;border-radius:999px;background:#ecfeff;border:1px solid #bae6fd;color:#0369a1;font-size:12px;font-weight:600}
+
+    /* Appointment */
+    .form{display:grid;gap:14px}
+    .input{padding:12px 14px;border:1px solid #cbd5e1;border-radius:10px;background:#fff}
+    .input:focus{outline:none;box-shadow:var(--ring);border-color:var(--primary)}
+    .row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+
+    /* Testimonials */
+    .quote{font-style:italic;color:#334155}
+
+    /* Footer */
+    footer{background:#0b1220;color:#cbd5e1}
+    .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:24px}
+    .footer-grid a{color:#cbd5e1}
+    .copyright{border-top:1px solid rgba(148,163,184,.25);margin-top:24px;padding-top:14px;color:#94a3b8}
+
+    /* Responsive */
+    @media (max-width: 940px){
+      .hero-wrap{grid-template-columns:1fr}
+      .grid-3{grid-template-columns:1fr 1fr}
+      .footer-grid{grid-template-columns:1fr 1fr}
+      .row{grid-template-columns:1fr}
+    }
+    @media (max-width: 640px){
+      .nav-links{display:none}
+      .menu-btn{display:block}
+      .grid-3{grid-template-columns:1fr}
+      .footer-grid{grid-template-columns:1fr}
+    }
+
+
+     h1,h2,h3,strong{
+      font-weight:800;
+      color:#0c4a6e;
+    }
+    h2{
+      background:linear-gradient(90deg,#0ea5e9,#22c55e,#f59e0b);
+      color:white !important;
+      padding:10px;
+      border-radius:12px;
+      text-align:center;
+      margin-bottom:15px;
+    }
+
+
+       /* Buttons */
+    .btn{
+      background:linear-gradient(45deg,#0ea5e9,#22c55e);
+      border:none;
+      color:white;
+      padding:12px 18px;
+      border-radius:12px;
+      font-weight:700;
+      transition:all 0.3s;
+    }
+    .btn:hover{
+      transform:scale(1.05);
+      box-shadow:0 6px 18px rgba(0,0,0,0.2);
+    }
+    .btn.secondary{
+      background:linear-gradient(45deg,#f59e0b,#fbbf24);
+      color:#fff;
+    }
+
+
+/* Common container */
+.container {
+  max-width: 1200px; /* চাইলে 1140px / 1000px করতে পারো */
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Navbar */
+.nav {
+  background: linear-gradient(90deg, #0ea5e9 0%, #7dd3fc 100%);
+  padding: 14px 0; /* উপরে-নিচে padding, container handle করবে side space */
+  box-shadow: 0 4px 12px rgba(2,132,199,0.18);
+  font-family: 'Inter', sans-serif;
+  color: #ffffff;
+}
+.nav .logo {
+  color: #ffffff;
+  font-weight: 900;
+  font-size: 24px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.45);
+}
+.nav ul {
+  list-style: none;
+  display: flex;
+  gap: 28px;
+  margin: 0;
+  padding: 0;
+}
+.nav ul li a {
+  color: #ffffff;
+  font-weight: 800;
+  font-size: 16px;
+  text-decoration: none;
+  letter-spacing: 0.6px;
+  padding: 6px 6px;
+  transition: transform .15s ease, opacity .15s ease;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.45);
+}
+.nav ul li a:hover {
+  transform: translateY(-3px);
+  opacity: 0.95;
+  color: #fff;
+}
+.nav .btn {
+  background: rgba(255,255,255,0.12);
+  color: #ffffff;
+  font-weight: 900;
+  border: 1px solid rgba(255,255,255,0.18);
+  padding: 10px 18px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background .18s ease, color .18s ease, box-shadow .18s ease;
+}
+.nav .btn:hover {
+  background: #ffffff;
+  color: #0ea5e9;
+  box-shadow: 0 6px 16px rgba(14,165,233,0.18);
+}
+
+/* Footer */
+footer {
+  background: linear-gradient(135deg,#0f172a,#1e293b);
+  color: #ffffff;
+  padding: 40px 0;
+  text-align: center;
+}
+footer strong {
+  color: #facc15;
+}
+
+  </style>
+<!-- </head> -->
+<!-- <body> -->
+  <!-- Navbar -->
+  <nav class="nav" aria-label="Primary Navigation">
+    <div class="container nav-inner">
+      <a class="brand" href="#" aria-label="Health Care of Bangladesh">
+        <span class="brand-badge" aria-hidden="true">HCB</span> 
+        <span>Health Care of Bangladesh</span>
+      </a>
+      <button class="menu-btn" aria-label="Toggle Menu" onclick="toggleMenu()">☰</button>
+      <div class="nav-links" id="navLinks">
+        
+        <a href="#services">Service</a>
+        <a href="/viewdoctor">Doctor's</a>
+        <a href="/viewdep">Department</a>
+        <a href="/login">Login</a>
+
+         <!-- <a class="nav-cta" href="/login">Login</a> -->
+        
+       
+
+         
+ 
+
+       <!-- Login Dropdown -->
+      <div class="dropdown">
+        <a  href="#" class="dropbtn">Registration▾</a>
+        <div class="dropdown-content">
+         
+          <a class="nav-cta" href="/doc"><b>Doctor</b> </a>
+          <a href="/nr"><b>Nurse</b> </a>
+          <a href="/rr"><b>Receptionist</b> </a>
+          <a href="/or"><b>Office-Staff</b> </a>
+          
+        </div>
+        
+      </div>
+    </div>
+         </div>
+  </nav>
+
+
+
+
+<style>
+/* Dropdown base */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropbtn {
+  color: #333;
+  text-decoration: none;
+  padding: 10px 14px;
+  display: block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background: #fff;
+  min-width: 180px;
+  box-shadow: 0px 8px 16px rgba(0,0,0,0.15);
+  z-index: 1000;
+}
+
+.dropdown-content a {
+  color: #333;
+  padding: 10px 14px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background: #f5f5f5;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+
+
+
+
+
+
+ section {
+    padding: 60px 0;
+  }
+  .section-light {
+    background: #f9fafb;
+  }
+  .section-dark {
+    background: #f0f9ff;
+    border-top: 1px solid #e2e8f0;
+    border-bottom: 1px solid #e2e8f0;
+  }
+  .section-title {
+    text-align: center;
+    background: #0ea5e9;
+    color: #fff;
+    padding: 10px;
+    border-radius: 12px;
+    margin-bottom: 25px;
+  }
+</style>
+
+
+  <!-- Hero -->
+  <header class="hero">
+    <div class="blob" aria-hidden="true"></div>
+    <div class="container hero-wrap">
+      <div>
+        <span class="badge">24/7 Emergency Service</span>
+        <h1> Trust, Hope & Healing — Your Health Our Priority</h1>
+        <p>Health Care of Bangladesh The combination of modern technology, skilled doctors, and compassionate care has made healthcare easier and more reliable.</p>
+        <div style="display:flex;gap:12px">
+          <a class="btn" href="/appoinment">Booked Your Appointment</a>
+          <a class="btn secondary" href="#services">Our Services</a>
+        </div>
+        <div class="stat">
+          <div class="item"><div style="font-size:22px;font-weight:800">50+</div><div class="muted">Department</div></div>
+          <div class="item"><div style="font-size:22px;font-weight:800">120+</div><div class="muted">Medical Specialist</div></div>
+          <div class="item"><div style="font-size:22px;font-weight:800">1M+</div><div class="muted">Patient Satisfaction</div></div>
+        </div>
+      </div>
+      <div>
+        <div class="hero-card" role="img" aria-label="Hospital Illustration">
+          <img src="https://images.unsplash.com/photo-1586773860418-d37222d8fce3?q=80&w=1200&auto=format&fit=crop" alt="Modern hospital interior" style="border-radius:12px">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px">
+            <div class="card"><strong>Digital Diagnostic Lab</strong><br><span class="muted">Online Report Access</span></div>
+            <div class="card"><strong>Hospital Pharmacy</strong><br><span class="muted">Open Around the Clock</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Services -->
+  <!-- <section id="services" aria-labelledby="services-title"> -->
+    <div class="">
+       <h2 style="text-align:center;background:#0ea5e9;color:#fff;padding:10px;border-radius:12px;">Our Services</h2>
+      <p class="section-sub">Comprehensive healthcare services including Diagnostics, Inpatient & Outpatient Care, Surgery, Maternity Services, and more.</p>
+      <div class="grid grid-3">
+        <div class="card">
+          <span class="tag"><b>Medical Diagnostics</b></span>
+          <h3>Pathology and Medical Imaging</h3>
+          <p>MRI, CT, X-Ray, Ultrasonography and Comprehensive Routine Tests.</p>
+        </div>
+        <div class="card">
+          <span class="tag"><b>Emergency</b></span>
+          <h3>Always-On Emergency Care</h3>
+          <p>Emergency Ambulance, Triage, Intensive Care, and Quick Admission.</p>
+        </div>
+        <div class="card">
+          <span class="tag"><b>Medical Surgery</b></span>
+          <h3>Advanced Surgical Theater</h3>
+          <p>Laparoscopic, Orthopedic, Cardiac, and General Surgical Services.</p>
+        </div>
+        <div class="card">
+          <span class="tag"><b>Maternity Care</b></span>
+          <h3>Maternal & Neonatal Services</h3>
+          <p>Low-Pain Delivery, Neonatal Intensive Care, and Lactation Assistance.</p>
+        </div>
+        <div class="card">
+          <span class="tag"><b>Patient Care</b></span>
+          <h3>External Consultation Room</h3>
+          <p>Routine Consultations and Follow-ups with Specialist Doctors.</p>
+        </div>
+        <div class="card">
+          <span class="tag"><b>Hospital Pharmacy</b></span>
+          <h3>Internal Pharmacy Services</h3>
+          <p>Original Pharmaceuticals, Consultation Services, and Home Delivery.</p>
+        </div>
+      </div>
+    </div>
+  <!-- </section> -->
+
+  <!-- Doctors -->
+  <section id="doctors" aria-labelledby="doctors-title" style="background:#f0f9ff;border-top:1px solid #e2e8f0;border-bottom:1px solid #e2e8f0">
+    <div class="">
+      <!-- <h2 class="section-title" style="text-align: center; background-color: #0ea5e9; " id="doctors-title">Specialist Doctors</h2> -->
+        <h2 style="text-align:center;background:#0ea5e9;color:#fff;padding:10px;border-radius:12px;">Specialist Doctor's</h2>
+      <p class="section-sub">Our team consists of experienced and certified consultants.</p>
+      <div class="grid grid-3">
+       <div class="card doctor">
+          <img class="avatar" src="https://avatars.githubusercontent.com/u/21266856?v=4" alt="ডা. হৃদয় চৌধুরী">
+          <div>
+            <strong>Prof. Emran Hossain</strong>
+            <div class="muted">Cardiology </div>
+            <span class="tag">12+ Years of Experience</span>
+          </div>
+        </div>
+        <div class="card doctor">
+          <img class="avatar" src="https://avatars.githubusercontent.com/u/195928727?s=130&v=4" alt="ডা. নুসরাত জাহান">
+          <div>
+            <strong>Dr. Suprova Shemanto</strong>
+            <div class="muted">Cardiology</div>
+            <span class="tag">8+ Years of Experience</span>
+          </div>
+        </div>
+        <div class="card doctor">
+          <img class="avatar" src="https://avatars.githubusercontent.com/u/195880852?s=130&v=4" alt="ডা. হৃদয় চৌধুরী">
+          <div>
+            <strong>Dr. Imran Mia</strong>
+            <div class="muted">Neourology</div>
+            <span class="tag">9+ Years of Experience</span>
+          </div>
+        </div>
+
+ <div class="card doctor">
+          <img class="avatar" src="https://avatars.githubusercontent.com/u/196037602?s=130&v=4" alt="ডা. হৃদয় চৌধুরী">
+          <div>
+            <strong>Dr. Atiqul Islam</strong>
+            <div class="muted">Urology </div>
+            <span class="tag">“7+ Years of Experience”</span>
+          </div>
+        </div>
+
+ <div class="card doctor">
+          <img class="avatar" src="https://avatars.githubusercontent.com/u/196035214?s=130&v=4" alt="ডা. হৃদয় চৌধুরী">
+          <div>
+            <strong>Dr. Rahim Khan</strong>
+            <div class="muted">Dermatology </div>
+            <span class="tag">“7+ Years of Experience”</span>
+          </div>
+        </div>
+
+
+
+<div class="card doctor">
+          <img class="avatar" src="https://avatars.githubusercontent.com/u/108518708?s=130&v=4" alt="ডা. হৃদয় চৌধুরী">
+          <div>
+            <strong>Dr. Rahmat Ullah</strong>
+            <div class="muted">Medicine</div>
+            <span class="tag">“7+ Years of Experience”</span>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Appointment -->
+  <!-- <section id="appointment" aria-labelledby="appointment-title"> -->
+   <div style="max-width:600px; margin:40px auto; padding:30px; border-radius:20px; 
+            background: linear-gradient(135deg,#f9f9f9,#e0f7fa); 
+            box-shadow: 0 12px 30px rgba(0,0,0,0.2); font-family: 'Segoe UI', sans-serif; 
+            animation: fadeIn 1s ease-in-out;">
+  
+  <h2 style="text-align:center; margin-bottom:25px; color:#00796b; animation: slideDown 1s ease;">
+    Book Your Appointment
+  </h2>
+
+  <form (ngSubmit)="saveAppoinmrnt()">
+
+    <!-- Patient Info -->
+    <div style="margin-bottom:20px;">
+      <input type="text" [(ngModel)]="patientName" name="patientName" placeholder="Patient Name" required
+             style="width:100%; padding:12px; border-radius:12px; border:1px solid #ccc; margin-bottom:10px; transition:0.3s;"
+             (focus)="onFocus($event)" (blur)="onBlur($event)">
+
+      <input type="text" [(ngModel)]="patientContact" name="patientContact" placeholder="Patient Contact Number" required
+             style="width:100%; padding:12px; border-radius:12px; border:1px solid #ccc; margin-bottom:10px; transition:0.3s;"
+             (focus)="onFocus($event)" (blur)="onBlur($event)">
+
+
+      <input type="text" [(ngModel)]="reason" name="reason" placeholder="Reason for Appointment" required
+             style="width:100%; padding:12px; border-radius:12px; border:1px solid #ccc; transition:0.3s;"
+             (focus)="onFocus($event)" (blur)="onBlur($event)">
+    </div>
+
+    <!-- Department Cards -->
+    <div style="display:flex; flex-wrap:wrap; gap:10px; margin-bottom:20px;">
+      <div *ngFor="let d of departments"
+           (click)="selectedDepartment=d.id; onDepartmentChange()"
+           [style.border]="selectedDepartment===d.id ? '2px solid #26a69a' : '1px solid #ccc'"
+           style="flex:1 1 calc(50% - 10px); padding:15px; border-radius:15px; text-align:center; cursor:pointer; background:#fff; transition:all 0.3s; box-shadow:0 5px 15px rgba(0,0,0,0.1);">
+        {{d.departmentName}}
+      </div>
+    </div>
+
+    <!-- Doctor Cards -->
+    <div style="display:flex; flex-wrap:wrap; gap:10px; margin-bottom:20px;" *ngIf="doctors.length>0">
+      <div *ngFor="let doc of doctors"
+           (click)="selectedDoctor=doc.id; onDoctorChange()"
+           [style.border]="selectedDoctor===doc.id ? '2px solid #ff7043' : '1px solid #ccc'"
+           style="flex:1 1 calc(50% - 10px); padding:15px; border-radius:15px; text-align:center; cursor:pointer; background:#fff3e0; transition:all 0.3s; box-shadow:0 5px 15px rgba(0,0,0,0.1);">
+        {{doc.name}}
+      </div>
+    </div>
+
+    <!-- Schedule Slot Cards -->
+    <div style="display:flex; flex-wrap:wrap; gap:10px; margin-bottom:25px;" *ngIf="scheduleSlot.length>0">
+      <div *ngFor="let s of scheduleSlot"
+           (click)="selectedScheduleSlot=s.id"
+           [style.border]="selectedScheduleSlot===s.id ? '2px solid #42a5f5' : '1px solid #ccc'"
+           style="flex:1 1 calc(50% - 10px); padding:12px; border-radius:12px; text-align:center; cursor:pointer; background:#e3f2fd; transition:all 0.3s; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
+        {{s.startTime}} - {{s.endTime}}
+      </div>
+    </div>
+
+    <!-- Submit Button -->
+    <button type="submit"
+            style="width:100%; padding:16px; border:none; border-radius:15px; background:linear-gradient(45deg,#42a5f5,#26c6da); color:white; font-size:16px; font-weight:bold; cursor:pointer; transition:all 0.3s; box-shadow:0 6px 18px rgba(0,0,0,0.2);">
+      Confirm Appointment
+    </button>
+  </form>
+</div>
+
+<style>
+@keyframes fadeIn {
+  0% { opacity:0; transform: scale(0.95);}
+  100% { opacity:1; transform: scale(1);}
+}
+@keyframes slideDown {
+  0% { opacity:0; transform: translateY(-20px);}
+  100% { opacity:1; transform: translateY(0);}
+}
+</style>
+
+  <!-- </section> -->
+
+  <!-- Testimonials -->
+ <!-- <section aria-labelledby="testimonials-title" style="background:#fff;border-top:1px solid #e2e8f0;border-bottom:1px solid #e2e8f0"> --> 
+    <div class="">
+      <!-- <h2 class="section-title"  style="text-align: center; background-color: #0ea5e9; " id="testimonials-title">Patient Testimonials</h2> -->
+        <h2 style="text-align:center;background:#0ea5e9;color:#fff;padding:10px;border-radius:12px;">Patient Testimonials</h2>
+      <div class="grid grid-3">
+        <div class="card">
+          <p class="quote">“দ্রুত সার্ভিস ও দারুণ কেয়ার। আমার বাবার হার্টের চিকিৎসায় খুব সহায়ক ছিল।”</p>
+          <div class="muted">— মাহিন, ঢাকা়</div>
+        </div>
+        <div class="card">
+          <p class="quote">“ম্যাটারনিটি ওয়ার্ড পরিষ্কার-পরিচ্ছন্ন এবং নার্সিং স্টাফ অসাধারণ।”</p>
+          <div class="muted">— ফারিয়া, চট্টগ্রাম</div>
+        </div>
+        <div class="card">
+          <p class="quote">“অনলাইনে অ্যাপয়েন্টমেন্ট দিয়ে খুব সহজেই চিকিৎসা নিতে পেরেছি।”</p>
+          <div class="muted">— সাকিব, সিলেট</div>
+        </div>
+      </div>
+    </div>
+  <!-- </section> -->
+
+  <!-- Contact -->
+  <section id="contact" aria-labelledby="contact-title"> 
+    <div class="">
+      <!-- <h2 class="section-title"  style="text-align: center; background-color: #0ea5e9; "id="contact-title">Contact With Us</h2> -->
+        <h2 style="text-align:center;background:#0ea5e9;color:#fff;padding:10px;border-radius:12px;">Contact With Us</h2>
+      <p class="section-sub">Hotline: 10600 • E-mail: healthCareofBangladesh@gmail.com</p>
+      <div class="grid" style="grid-template-columns: 1.1fr .9fr; gap:18px">
+        <div class="card">
+          <h3 style="margin-top:0">Hospital Address</h3>
+          <p>House 12, Road 7, Azimpur, Dhaka-1205</p>
+          <p class="muted">Operating 24 Hours Daily</p>
+          <hr style="border:none;border-top:1px solid #e2e8f0;margin:14px 0">
+          <h3>Hotline</h3>
+          <p>+880 9612-000000</p>
+          <h3>E-mail</h3>
+          <p>healthCareofBangladesh@gmail.com</p>
+        </div>
+        <div class="card" aria-label="Map placeholder">
+         <!-- Map Embed -->
+<div style="background:#e2e8f0;border-radius:10px;overflow:hidden;height:260px;">
+  <iframe 
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3651.45374637499!2d90.38256387480407!3d23.7351864892531!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755b95ae1d5f2a7%3A0xa9bdb61c4de8e4f7!2sAzimpur%2C%20Dhaka!5e0!3m2!1sen!2sbd!4v1726501300000!5m2!1sen!2sbd" 
+    width="100%" 
+    height="260" 
+    style="border:0;" 
+    allowfullscreen="" 
+    loading="lazy" 
+    referrerpolicy="no-referrer-when-downgrade">
+  </iframe>
+</div>
+
+        </div>
+      </div>
+    </div>
+  </section> 
+
+  <!-- Footer -->
+  <footer role="contentinfo">
+    <div class="" style="padding:28px 0">
+      <div class="footer-grid">
+        
+          <div class="brand" style="margin-bottom:10px">
+            <span class="brand-badge" aria-hidden="true">＋</span>
+            <span>Health Care of Bangladesh</span>
+          
+          <p style="margin:0;color:#cbd5e1"><b>**Trust, Hope & Healing</b> </p>
+          <p style="margin:0;color:#cbd5e1"><b>— Your Health Our Priority.**</b></p>
+        </div>
+        <div>
+          <strong>Fast Access Links</strong>
+          <div style="display:grid;gap:8px;margin-top:10px">
+            <a href="#services">Services</a>
+            <a href="#doctors">Doctor's</a>
+            <a href="#appointment">Appointment</a>
+            <a href="#contact">Contact</a>
+          </div>
+        </div>
+        <div>
+          <strong>Policy</strong>
+          <div style="display:grid;gap:8px;margin-top:10px">
+            <a href="#">Privacy & Security Policy</a>
+            <a href="#">Terms & Conditions</a>
+            <a href="#">Returns & Refunds Policy</a>
+          </div>
+        </div>
+      </div>
+      <div class="copyright">© <span id="year"></span> CarePlus Hospital. সর্বস্বত্ব সংরক্ষিত।</div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    function toggleMenu(){
+      const nav = document.getElementById('navLinks');
+      if(getComputedStyle(nav).display === 'none'){
+        nav.style.display = 'flex';
+        nav.style.flexDirection = 'column';
+        nav.style.gap = '10px';
+        nav.style.padding = '12px 0';
+      } else {
+        nav.style.display = '';
+      }
+    }
+
+    // Appointment fake submit
+    function submitForm(e){
+      e.preventDefault();
+      const status = document.getElementById('formStatus');
+      status.textContent = 'Your request has been submitted! Our care team will get in touch with you soon.';
+      e.target.reset();
+      setTimeout(()=> status.textContent = '', 5000);
+    }
+
+    // Current year in footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+<!-- </body>
+</html> -->

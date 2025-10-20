@@ -1,0 +1,78 @@
+<div class="container mt-4">
+  <h2 class="text-primary mb-4">Lab Test Management</h2>
+
+  <!-- ✅ Form -->
+  <form [formGroup]="testForm" (ngSubmit)="onSubmit()" class="row g-3">
+    <input type="hidden" formControlName="id" />
+
+    <div class="col-md-6">
+      <label for="testName" class="form-label">Test Name</label>
+      <input type="text" formControlName="testName" id="testName" class="form-control" placeholder="e.g., CBC" />
+    </div>
+
+    <div class="col-md-6">
+      <label for="testPrice" class="form-label">Test Price (৳)</label>
+      <input type="number" formControlName="testPrice" id="testPrice" class="form-control" />
+    </div>
+
+    <div class="col-12">
+      <button type="submit" class="btn btn-success">
+        {{ editMode ? 'Update Test' : 'Add Test' }}
+      </button>
+      <button type="button" class="btn btn-secondary ms-2" (click)="testForm.reset(); editMode = false" *ngIf="editMode">
+        Cancel
+      </button>
+    </div>
+  </form>
+
+  <hr class="my-4" />
+
+  <!-- ✅ Test List in Cards -->
+  <h4 class="mb-3">Test List</h4>
+  <div class="row g-4">
+    <div class="col-md-4" *ngFor="let test of tests">
+      <div class="card shadow-lg border-0 h-100"
+           style="border-radius:20px;
+                  background:linear-gradient(135deg,#89f7fe,#66a6ff);
+                  transition:transform 0.3s ease, box-shadow 0.3s ease;"
+           onmouseover="this.style.transform='translateY(-10px) scale(1.03)';
+                        this.style.boxShadow='0px 12px 25px rgba(0,0,0,0.3)';"
+           onmouseout="this.style.transform='scale(1)';
+                       this.style.boxShadow='0px 6px 12px rgba(0,0,0,0.15)';">
+
+        <div class="card-body text-center">
+          <!-- ✅ Hidden ID (not showing) -->
+
+          <!-- Test Icon -->
+          <div style="font-size:40px; color:white; margin-bottom:10px;">🧪</div>
+
+          <!-- Test Name -->
+          <h5 class="card-title"
+              style="font-size:1.4rem; font-weight:900; color:#000;
+                     text-shadow:1px 1px 3px rgba(255,255,255,0.6);">
+            {{ test.testName }}
+          </h5>
+
+          <!-- Price -->
+          <p style="font-size:1.1rem; font-weight:bold; color:#fff;">
+            ৳ {{ test.testPrice }}
+          </p>
+
+          <!-- Actions -->
+          <div class="d-flex justify-content-center gap-2 mt-3">
+            <button class="btn btn-sm btn-light"
+                    style="border-radius:12px; font-weight:bold; color:#333;"
+                    (click)="onEdit(test)">✏ Edit</button>
+            <button class="btn btn-sm btn-dark"
+                    style="border-radius:12px; font-weight:bold;"
+                    (click)="onDelete(test.id!)">❌ Delete</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="tests.length === 0" class="text-center text-muted mt-3">
+      No tests found
+    </div>
+  </div>
+</div>

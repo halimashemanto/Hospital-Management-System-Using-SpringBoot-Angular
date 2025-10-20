@@ -1,0 +1,18 @@
+<div *ngIf="loginStatus$ | async as role; else onlyContent" id="wrapper">
+  <app-sidebar></app-sidebar>
+  <div id="content-wrapper" class="d-flex flex-column">
+    <div id="content">
+      <app-navbar></app-navbar>
+      <div class="container-fluid">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+    <app-footer></app-footer>
+  </div>
+</div>
+
+<ng-template #onlyContent>
+  <div class="container-fluid">
+    <router-outlet></router-outlet>
+  </div>
+</ng-template>
