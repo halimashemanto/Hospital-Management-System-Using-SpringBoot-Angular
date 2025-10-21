@@ -300,6 +300,7 @@ generatePDF() {
   doc.setFontSize(22);
   doc.setFont('helvetica', 'bold');
   doc.text('Health Care of Bangladesh', 105, 15, { align: 'center' });
+
   doc.setFontSize(12);
   doc.setFont('helvetica', 'normal');
   doc.text('Address: 123 Azimpur, Dhaka, Bangladesh', 105, 22, { align: 'center' });
@@ -313,32 +314,31 @@ generatePDF() {
   doc.setFont('helvetica', 'bold');
   doc.text('Patient Information:', 14, 40);
   doc.setFont('helvetica', 'normal');
-  const patient = this.prescription;
+
+  const patient = this.prescription || {};
+
+  // Safe doctor lookup
+  const doctor = this.doctors?.find(d => d.id == patient.doctorId); // double equals for type coercion
+  const doctorName = doctor ? doctor.name : 'Unknown';
 
   doc.text(`Name: ${patient.patientName || ''}`, 14, 47);
   doc.text(`Age: ${patient.patientAge || ''}`, 14, 54);
- 
   doc.text(`Height: ${patient.height || ''} cm`, 14, 68);
   doc.text(`Weight: ${patient.weight || ''} kg`, 14, 75);
   doc.text(`BP: ${patient.bp || ''}`, 14, 82);
   doc.text(`Contact: ${patient.patientContact || ''}`, 14, 89);
 
-  doc.text(
-    `Doctor: ${this.doctors.find(d => d.id === patient.doctorId)?.name || ''}`,
-    105,
-    47
-  );
+  doc.text(`Doctor: ${doctorName}`, 105, 47);
   doc.text(`Date: ${new Date().toLocaleDateString()}`, 105, 54);
 
   let currentY = 100;
 
   // ---------- Medicines Table ----------
-  if (this.selectedMedicines && this.selectedMedicines.length > 0) {
+  if (this.selectedMedicines?.length) {
     const medicineRows = this.selectedMedicines.map(m => [
       m.medicineName || '',
+   
      
-    
-    
     ]);
 
     autoTable(doc, {
@@ -354,10 +354,9 @@ generatePDF() {
   }
 
   // ---------- Tests Table ----------
-  if (this.selectedTests && this.selectedTests.length > 0) {
+  if (this.selectedTests?.length) {
     const testRows = this.selectedTests.map(t => [
-      t.testName || ''
-    
+      t.testName || '',
       
     ]);
 
@@ -386,7 +385,12 @@ generatePDF() {
   doc.setLineWidth(0.5);
   doc.line(14, 280, 196, 280);
   doc.setFontSize(10);
-  doc.text('This is a computer-generated prescription. Please follow the doctor’s instructions.', 105, 286, { align: 'center' });
+  doc.text(
+    'This is a computer-generated prescription. Please follow the doctor’s instructions.',
+    105,
+    286,
+    { align: 'center' }
+  );
 
   // ---------- Save PDF ----------
   doc.save(`Prescription_${patient.patientName || 'Unknown'}_${Date.now()}.pdf`);
