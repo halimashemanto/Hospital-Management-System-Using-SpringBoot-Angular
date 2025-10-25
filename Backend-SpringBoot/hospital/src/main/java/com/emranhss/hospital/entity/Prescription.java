@@ -21,7 +21,7 @@ public class Prescription {
     private String weight;
     private String bp;
     private Date date;
-    private String applyWay; // new field
+    private String applyWay;
 
     @OneToMany(mappedBy = "prescription", cascade = CascadeType.ALL)
     @JsonIgnoreProperties("prescription")

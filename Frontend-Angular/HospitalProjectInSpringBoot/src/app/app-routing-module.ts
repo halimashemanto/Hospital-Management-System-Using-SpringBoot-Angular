@@ -112,7 +112,7 @@ const routes: Routes = [
   { path: 'rp', component: ReceptionistIndivisualProfile, canActivate: [ReceptionistsGuard] },
   { path: 'op', component: OfficeStaffIndivisualProfile , canActivate: [OfficeStaffGuard]},
   { path: 'allprofile', component: AllUserProfile , canActivate: [AdminGuard]},
-  { path: 'doctorprofile', component: DoctorIndivisualProfile , canActivate: [AdminGuard]},
+  { path: 'doctorprofile', component: DoctorIndivisualProfile , canActivate: [DoctorGuard]},
   { path: 'viewdoctor', component: ViewDoctor , canActivate: [AdminGuard]},
   
   { path: 'viewnurse', component: ViewNurse , canActivate: [AdminGuard]},

@@ -12,6 +12,9 @@ public class Medicine {
     private long id;
     private String medicineName;
 
+    private String duration;   //  Optional: how long (e.g. 7 days)
+    private String applyWay;
+
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "prescription_id")
@@ -31,6 +34,22 @@ public class Medicine {
 
     public String getMedicineName() {
         return medicineName;
+    }
+
+    public String getDuration() {
+        return duration;
+    }
+
+    public void setDuration(String duration) {
+        this.duration = duration;
+    }
+
+    public String getApplyWay() {
+        return applyWay;
+    }
+
+    public void setApplyWay(String applyWay) {
+        this.applyWay = applyWay;
     }
 
     public void setMedicineName(String medicineName) {

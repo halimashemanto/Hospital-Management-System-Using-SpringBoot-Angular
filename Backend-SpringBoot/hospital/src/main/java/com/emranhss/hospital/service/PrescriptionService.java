@@ -32,16 +32,6 @@ public class PrescriptionService {
     private ITestRepo testRepo;
 
 
-//    public Prescription createOrUpdatePrescription(PrescriptionDTO dto) {
-//        Prescription p = dto.getId() != null ?
-//                prescriptionRepo.findById(dto.getId()).orElse(new Prescription()) :
-//                new Prescription();
-//        return mapAndSave(dto, p);
-//    }
-
-
-
-
 
     @Transactional
     public Prescription savePrescription(PrescriptionDTO dto) {
@@ -69,16 +59,15 @@ public class PrescriptionService {
         // Set medicines
         if (dto.getMedicines() != null) {
             List<Medicine> medicines = dto.getMedicines().stream()
-                    .map(m -> {
-                        if (m.getId() != null) {
-                            return medicineRepo.findById(m.getId()).orElse(null);
-                        }
-                        return null;
+                    .map(mdto -> {
+                        Medicine m = new Medicine();
+                        m.setMedicineName(mdto.getMedicineName());
+                        m.setDuration(mdto.getDuration());
+                        m.setApplyWay(mdto.getApplyWay());
+                        m.setPrescription(prescription);
+                        return m;
                     })
-                    .filter(m -> m != null)
                     .collect(Collectors.toList());
-
-            medicines.forEach(m -> m.setPrescription(prescription));
             prescription.setMedicines(medicines);
         }
 
@@ -112,59 +101,6 @@ public class PrescriptionService {
     }
 
 
-//    @Transactional
-//    public List<PrescriptionDTO> getAllPrescriptionsDTO() {
-//        List<Prescription> list = prescriptionRepo.findAll();
-//        List<PrescriptionDTO> dtoList = new ArrayList<>();
-//        for(Prescription p : list){
-//            dtoList.add(mapToDTO(p));
-//        }
-//        return dtoList;
-//    }
-
-
-//    @Transactional
-//    public PrescriptionDTO getPrescriptionDTOById(Long id) throws Exception {
-//        Prescription p = prescriptionRepo.findById(id)
-//                .orElseThrow(() -> new Exception("Prescription not found"));
-//        return mapToDTO(p);
-//    }
-
-//    private Prescription mapAndSave(PrescriptionDTO dto, Prescription p){
-//        p.setNote(dto.getNote());
-//        p.setAdvice(dto.getAdvice());
-//        p.setHeight(dto.getHeight());
-//        p.setWeight(dto.getWeight());
-//        p.setBp(dto.getBp());
-//        p.setDate(dto.getDate() != null ? dto.getDate() : new Date());
-//        p.setApplyWay(dto.getApplyWay());
-//
-//
-//        doctorRepo.findById(dto.getDoctorId()).ifPresent(p::setDoctor);
-//
-//        // Appointment
-//        appointmentRepo.findById(dto.getAppoinmentId()).ifPresent(p::setAppointment);
-//
-//        // Medicines
-//        List<Medicine> meds = new ArrayList<>();
-//        if(dto.getMedicineIds() != null){
-//            for(Long id : dto.getMedicineIds()){
-//                medicineRepo.findById(id).ifPresent(meds::add);
-//            }
-//        }
-//        p.setMedicines(meds);
-//
-//        // Tests
-//        List<Tests> tests = new ArrayList<>();
-//        if(dto.getTestIds() != null){
-//            for(Long id : dto.getTestIds()){
-//                testRepo.findById(id).ifPresent(tests::add);
-//            }
-//        }
-//        p.setTests(tests);
-//
-//        return prescriptionRepo.save(p);
-//    }
 
     // Private: map Entity → DTO
     public PrescriptionDTO mapToResponseDTO(Prescription prescription) {
@@ -193,10 +129,12 @@ public class PrescriptionService {
                     MedicineDTO md = new MedicineDTO();
                     md.setId(m.getId());
                     md.setMedicineName(m.getMedicineName());
-
+                    md.setDuration(m.getDuration());
+                    md.setApplyWay(m.getApplyWay());
                     return md;
                 }).toList()
         );
+
 
         dto.setTests(
                 prescription.getTests().stream().map(t -> {

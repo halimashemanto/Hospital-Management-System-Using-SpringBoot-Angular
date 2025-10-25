@@ -1,8 +1,6 @@
-export interface MedicineModel{
-
-id:number;
-
-medicineName:string;
-
-
+export interface MedicineModel {
+  id: number;
+  medicineName: string;
+  duration: string;
+  applyWay: string;
 }
